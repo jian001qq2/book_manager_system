@@ -1,4 +1,4 @@
-INSERT INTO `users` (`id`, `firstName`, `lastName`, `email`, `password`, `username`, `signedIn`, `advancedUser`, `createdAt`, `updatedAt`)
+INSERT INTO `Users` (`id`, `firstName`, `lastName`, `email`, `password`, `username`, `signedIn`, `advancedUser`, `createdAt`, `updatedAt`)
 VALUES
 	(1,'George','Washington',' GW@president1.com','1789-1797','#1 pres',0,0,'2019-02-07 13:26:39','2019-02-07 13:26:39'),
 	(2,'John','Adams',' JA@president2.com',' 1797-1801','#2 pres',0,0,'2019-02-07 13:26:39','2019-02-07 13:26:39'),

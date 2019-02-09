@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-  var Book = sequelize.define("book", {
+  var Book = sequelize.define("Book", {
     title: {
       type: DataTypes.STRING,
       allowNull: false
@@ -25,8 +25,8 @@ module.exports = function (sequelize, DataTypes) {
   });
   Book.associate = function(models) {
    
-   Book.hasOne(models.Category, {
-      foreignKey: 'bookId'
+   Book.belongsTo(models.Category, {
+     foreignKey:{allowNull:true}
     });
   };
 

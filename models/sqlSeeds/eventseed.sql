@@ -1,4 +1,4 @@
-INSERT INTO `events` (`id`, `eventName`, `summary`, `complete`, `eventTime`, `location`, `maxNumber`, `createdAt`, `updatedAt`)
+INSERT INTO `Events` (`id`, `eventName`, `summary`, `complete`, `eventTime`, `location`, `maxNumber`, `createdAt`, `updatedAt`)
 VALUES
 	(1,'1 event','the intro for group',0,'may 3, 2123','A number-one location for the event',54,'2019-02-07 13:26:39','2019-02-07 13:26:39'),
 	(2,'2 event','the afdadadap',0,'may 3, 1123','a police station near the event',5,'2019-02-07 13:26:39','2019-02-07 13:26:39'),

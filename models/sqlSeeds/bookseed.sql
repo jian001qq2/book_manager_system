@@ -1,4 +1,4 @@
-INSERT INTO `books` (`id`, `title`, `author`, `description`, `image`, `total`, `saved`, `createdAt`, `updatedAt`)
+INSERT INTO `Books` (`id`, `title`, `author`, `description`, `image`, `total`, `saved`, `createdAt`, `updatedAt`)
 VALUES
 	(1, 'Lord of the Flies', 'William Golding', 'The tale of at en and death.', 'https://via.placeholder.com/150', 1, 0, '2019-02-07 13:26:39', '2019-02-07 13:26:39'),
 	(2, 'Lord of the Flies', 'William Golding', 'The tale of at en and death.', 'https://via.placeholder.com/150', 1, 0, '2019-02-07 13:26:39', '2019-02-07 13:26:39'),

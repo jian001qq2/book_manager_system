@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var BorrowedBook = sequelize.define("borrowedBook", {
+    var BorrowedBook = sequelize.define("BorrowedBook", {
         title: {
             type: DataTypes.STRING,
             allowNull: false

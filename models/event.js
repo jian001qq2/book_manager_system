@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Activity= sequelize.define("event", {
+    var Activity= sequelize.define("Event", {
       eventName:{type:DataTypes.STRING},
       summary: {type:DataTypes.TEXT},
       complete: {type:DataTypes.BOOLEAN,
