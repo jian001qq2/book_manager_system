@@ -26,7 +26,6 @@ module.exports = function (sequelize, DataTypes) {
   Book.associate = function(models) {
    
    Book.belongsTo(models.Category, {
-     foreignKey:{allowNull:true}
     });
   };
 

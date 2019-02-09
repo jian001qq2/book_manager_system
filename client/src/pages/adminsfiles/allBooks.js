@@ -40,13 +40,8 @@ class AllBook extends Component {
     }
 
     handleInputChange = event => {
-        const {
-            name,
-            value
-        } = event.target;
-        this.setState({
-            [name]: value
-        });
+        const {name, value} = event.target;
+        this.setState({[name]: value});
     };
     handleFormSubmit = event => {
         event.preventDefault();
@@ -113,6 +108,11 @@ class AllBook extends Component {
                 onChange={this.handleInputChange}
                 placeholder="author(required)"/>
                 <br/>
+                category <select>
+  <option value="1" name="categoryId" >fiction</option>
+  <option value="2"name="categoryId">non-fiction</option>
+
+</select>
             <textarea type="text" name ="description"value={this.state.description}
                 onChange={this.handleInputChange}
                 placeholder="description"/>
