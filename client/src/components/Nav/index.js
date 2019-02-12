@@ -24,7 +24,7 @@ export function Nav() {
         <li className="nav-item">
       <Link to="/admins" className="nav-link">adimins</Link>
         </li>
-        <li>
+        <li className="nav-item">
         <form>
           <input />
           <button>fsfdf</button>
