@@ -17,7 +17,7 @@ function Admin({match}){
     <Link to={`${match.url}/books`}className="nav-link" >manage book</Link>
   </li>
   <li  className="nav-item">
-  <Link to ={`${match.url}/users`}c lassName="nav-link" >manage User</Link>
+  <Link to ={`${match.url}/users`}className="nav-link" >manage User</Link>
   </li>
   <li  className="nav-item">
     <Link to={`${match.url}/events`} className="nav-link">manage event</Link>

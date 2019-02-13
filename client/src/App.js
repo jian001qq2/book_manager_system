@@ -9,20 +9,16 @@ import Admin from "./pages/Admin"
 import Activity from "./pages/Event"
 import Detail from './pages/Detail' // this just to show the book
  import fakeAuth from "./forauth/fakeauth"
-
+ import {userApi}from "./utils/Api"
+//compoent use when the user login 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props =>(
-      fakeAuth.isAuthenticated
-       ? ( <Component {...props} />)
-       : (<Redirect to={{
-         pathname: '/login',
-         state:{from: props.location}
+      fakeAuth.isAuthenticated? <Component {...props} />
+: <Redirect to={{pathname: '/login', state:{from: props.location}
        }}/>
-      )
-    )
-    }
-  />
+  )}/>
 );
+
 const AuthButton = withRouter(
   ({ history }) =>
     fakeAuth.isAuthenticated ? (
@@ -42,9 +38,45 @@ const AuthButton = withRouter(
 );
 class Login extends React.Component {
   state = {
-    redirectToReferrer: false
+    redirectToReferrer: false,
+    username:"",
+    password:"",
+    users:[],//grab all user stored in the database
+    admins:[] //grab all administrators in the database
   };
-
+  componentWillMount() {
+    this.getUsers()
+}
+  getUsers() {
+    userApi.getUsers()
+        .then((res) => {console.log(res.data)
+            this.setState({
+                users: res.data
+            })
+        })
+}
+  handleInputChange = event => {
+    const {name, value} = event.target;
+    this.setState({[name]: value});
+};
+handleFormSubmit = event => {
+    event.preventDefault();
+    const inputUser=this.state.username;
+    const inputPassword=this.state.password;
+    const registedUser=this.state.users
+//put info after check ???
+    if (inputPassword && inputUser) {
+      for(var i=0;i<registedUser.length; i++){
+        if (inputUser===registedUser[i].username && inputPassword ===registedUser[i].password){
+          this.login()
+        }
+      }
+     
+    
+            } else{ alert("please fill in all the blank spot")}
+       
+            }
+// the function for the check up or taking the user input to show the page
   login = () => {
     fakeAuth.authenticate(() => {
       this.setState({ redirectToReferrer: true });
@@ -58,10 +90,28 @@ if (redirectToReferrer===true){
   return <Redirect to ={from} />
 }
     return (
-      <div>
-    <p>you must log in to view the page at {from.pathname}</p>
-    <button onClick={this.login}>Log in</button>
-      </div>
+    <div>
+      <p>you must log in to view the page at {from.pathname}</p>
+    <div className="card">
+      <div className="card-body">
+      <button className="float-right btn btn-outline-primary">Sign up</button>
+      <h4 className="card-title mb-4 mt-1">Sign in</h4>
+         <form>
+          <div className="form-group">
+            <label>Your username</label>
+              <input name="username" className="form-control" placeholder="Username" type="text"  onChange={this.handleInputChange}/>
+          </div> 
+          <div className="form-group">
+            <label>Your password</label>
+              <input  name="password" className="form-control" placeholder="password" type="text"  onChange={this.handleInputChange}/>
+          </div> 
+          <div className="form-group">
+              <button  type="submit"className="btn btn-primary btn-block"onClick={this.handleFormSubmit}> Login  </button>
+          </div>
+         </form>
+         </div>
+         </div>
+  </div> 
     );
   }
 }
