@@ -27,7 +27,7 @@ export function Nav() {
         <li className="nav-item">
         <form>
           <input />
-          <button>fsfdf</button>
+          <button>Search</button>
         </form>
         </li>
       </ul>

@@ -64,15 +64,13 @@ handleFormSubmit = event => {
     const inputUser=this.state.username;
     const inputPassword=this.state.password;
     const registedUser=this.state.users
-//put info after check ???
+
     if (inputPassword && inputUser) {
       for(var i=0;i<registedUser.length; i++){
         if (inputUser===registedUser[i].username && inputPassword ===registedUser[i].password){
           this.login()
         }
       }
-     
-    
             } else{ alert("please fill in all the blank spot")}
        
             }
@@ -92,7 +90,10 @@ if (redirectToReferrer===true){
     return (
     <div>
       <p>you must log in to view the page at {from.pathname}</p>
-    <div className="card">
+      <div className="row">
+      <div className="col-sm-2"></div>
+      <div className="col-sm-5">
+      <div className="card">
       <div className="card-body">
       <button className="float-right btn btn-outline-primary">Sign up</button>
       <h4 className="card-title mb-4 mt-1">Sign in</h4>
@@ -112,6 +113,10 @@ if (redirectToReferrer===true){
          </div>
          </div>
   </div> 
+  <div className="col-sm-2"></div>
+      </div>
+      </div>
+   
     );
   }
 }

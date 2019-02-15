@@ -5,7 +5,8 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     author: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     },
     description: {
       type: DataTypes.TEXT
@@ -22,12 +23,15 @@ module.exports = function (sequelize, DataTypes) {
    type:DataTypes.BOOLEAN,
    defaultValue:false
  }
-  });
-  Book.associate = function(models) {
-   
-   Book.belongsTo(models.Category, {
+  });  
+  Book.associate = (models) => {
+    Book.belongsToMany(models.User, {
+      through: 'BorrowedBook',
+      foreignKey: 'bookId',
+      otherKey: 'userId',
+      unique: false
     });
   };
-
+ 
   return Book;
 };

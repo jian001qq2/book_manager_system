@@ -1,5 +1,5 @@
 
-INSERT INTO `Users` (`id`, `firstName`, `lastName`, `email`, `username`, `password`, `signedIn`, `advancedUser`, `createdAt`, `updatedAt`)
+INSERT INTO `Users` (`id`, `firstName`, `lastName`, `email`, `username`, `password`, `isAdmin`, `advancedUser`, `createdAt`, `updatedAt`)
 VALUES
 	(1,'George','Washington',' GW@president1.com','qwer123','123456',0,0,'2019-02-07 13:26:39','2019-02-07 13:26:39'),
 	(2,'John','Adams',' JA@president2.com','adams',' 1797-1801',0,0,'2019-02-07 13:26:39','2019-02-07 13:26:39'),

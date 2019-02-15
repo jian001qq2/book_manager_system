@@ -15,10 +15,11 @@ module.exports = function (sequelize, DataTypes) {
       unique:true
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     },
    
-    signedIn: {
+    isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
@@ -27,14 +28,17 @@ module.exports = function (sequelize, DataTypes) {
       defaultValue: false
     }
   });
-  // User.associate = function (models) {
-  //   User.hasMany(models.BorrowedBook, {
-  //     foreignKey: "userId"
-     
-  //   });
-
-
-  // };
+  User.associate = (models) => {
+    User.belongsToMany(models.Book, {
+      through: 'BorrowedBook',
+      foreignKey: 'userId',
+      otherKey: 'bookId',
+      unique: false,
+    });
+    User.hasMany(models.Activity,{
+      onDelete: "cascade"
+    })
+  };
 
   return User;
 };
